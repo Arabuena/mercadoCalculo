@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Taxas</title>
+  
+  <!-- Estilo -->
   <link rel="stylesheet" href="styles.css">
   
   <!-- Ícone para a aba do navegador -->
@@ -11,10 +13,15 @@
 
   <!-- Ícone para atalhos no celular -->
   <link rel="apple-touch-icon" href="assets/mercado_pago_calculadora_icon.png">
+
+  <!-- Manifesto para PWA -->
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div class="container">
     <h1>Calculadora de Taxas</h1>
+    
+    <!-- Formulário da calculadora -->
     <form id="calculadora-form">
       <label for="valor">Valor que deseja receber (R$):</label>
       <input type="number" id="valor" required><br>
@@ -45,16 +52,19 @@
       <button type="submit">Calcular</button>
     </form>
 
+    <!-- Resultado -->
     <div id="resultado"></div>
 
+    <!-- Seção de download do ícone -->
     <div class="download-icon">
       <h2>Baixe o ícone da Calculadora</h2>
       <a href="assets/mercado_pago_calculadora_icon.png" download="calculadora_mercado_pago_icon.png">
-        <button>Baixar Ícone</button>
+        <button type="button">Baixar Ícone</button>
       </a>
     </div>
   </div>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
