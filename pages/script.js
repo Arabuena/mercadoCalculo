@@ -43,14 +43,14 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
   // Calcular o valor bruto necessário para que, após deduzir as taxas, o valor líquido seja o desejado
   const valorBruto = valorLiquido / (1 - (taxaParcelamento + taxaProcessamento));
 
-  // Calcular o valor total com a taxa adicional
-  const valorComTaxa = valorBruto * (1 + taxaAdicional / 100);
+  // Calcular o valor total com a soma de todas as taxas (parcelamento + processamento)
+  const valorComTaxas = valorBruto * (1 + taxaParcelamento + taxaProcessamento);
 
   // Calcular o valor da parcela
-  const valorParcela = valorComTaxa / parcelas;
+  const valorParcela = valorComTaxas / parcelas;
 
   // Calcular o valor que o cliente precisa cobrar (Valor Bruto + todas as taxas)
-  const valorCobradoCliente = valorComTaxa;
+  const valorCobradoCliente = valorComTaxas;
 
   // Calcular a taxa total (soma de todas as taxas)
   const taxaTotal = taxaParcelamento + taxaProcessamento;
@@ -60,7 +60,7 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
     <h2>Resultado:</h2>
     <p><strong>Valor que você quer receber (R$):</strong> R$ ${valorLiquido.toFixed(2)}</p>
     <p><strong>Valor Bruto Necessário para Cobrar (R$):</strong> R$ ${valorBruto.toFixed(2)}</p>
-    <p><strong>Valor Total com Juros (R$):</strong> R$ ${valorComTaxa.toFixed(2)}</p>
+    <p><strong>Valor Total com Juros (R$):</strong> R$ ${valorComTaxas.toFixed(2)}</p>
     <p><strong>Valor da Parcela (R$):</strong> R$ ${valorParcela.toFixed(2)}</p>
     <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}%</p>
     <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}%</p>
