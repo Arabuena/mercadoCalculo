@@ -4,26 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Taxas</title>
-
-  <!-- Ícone e Manifesto -->
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/mercado_pago_calculadora_icon.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/mercado_pago_calculadora_icon.png">
-
-  <!-- Estilo -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
   <div class="container">
-    <h1>Calculadora de Taxas do Mercado Pago</h1>
-
-    <!-- Formulário da calculadora -->
+    <h1>Calculadora de Taxas</h1>
     <form id="calculadora-form">
-      <label for="valor">Valor que deseja receber (R$):</label>
-      <input type="number" id="valor" step="0.01" required><br>
+      <label for="valor">Valor que você quer receber (R$):</label>
+      <input type="number" id="valor" step="0.01" required>
 
       <label for="parcelas">Número de Parcelas:</label>
-      <select id="parcelas" required>
+      <select id="parcelas">
         <option value="1">1x</option>
         <option value="2">2x</option>
         <option value="3">3x</option>
@@ -36,28 +27,21 @@
         <option value="10">10x</option>
         <option value="11">11x</option>
         <option value="12">12x</option>
-      </select><br>
+      </select>
 
-      <label for="prazo">Prazo de Processamento:</label>
-      <select id="prazo" required>
+      <label for="prazo">Prazo para Recebimento:</label>
+      <select id="prazo">
         <option value="imediato">Imediato</option>
         <option value="14 dias">14 dias</option>
         <option value="30 dias">30 dias</option>
-      </select><br>
+      </select>
 
       <button type="submit">Calcular</button>
     </form>
 
-    <!-- Resultado -->
     <div id="resultado"></div>
-
-    <!-- Instalação do PWA -->
-    <div class="install-pwa">
-      <h2>Adicione a Calculadora à sua Área de Trabalho</h2>
-      <button id="install-button" style="display:none;">Instalar</button>
-    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
 </body>
 </html>

@@ -1,4 +1,3 @@
-// Evento de envio do formulário
 document.getElementById('calculadora-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -34,7 +33,6 @@ document.getElementById('calculadora-form').addEventListener('submit', function 
 
   const taxaParcelamento = taxasParcelamento[parcelas];
   const taxaProcessamento = taxasProcessamento[prazo];
-
   const valorTaxaParcelamento = valorLiquido * taxaParcelamento;
   const valorTaxaProcessamento = valorLiquido * taxaProcessamento;
   const valorTotalComJuros = valorLiquido + valorTaxaParcelamento + valorTaxaProcessamento;
@@ -48,29 +46,7 @@ document.getElementById('calculadora-form').addEventListener('submit', function 
     <p><strong>Valor da Parcela (R$):</strong> R$ ${valorParcela.toFixed(2)}</p>
     <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}% = R$ ${valorTaxaParcelamento.toFixed(2)}</p>
     <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}% = R$ ${valorTaxaProcessamento.toFixed(2)}</p>
+    <p><strong>Valor a Cobrar do Cliente:</strong> R$ ${valorTotalComJuros.toFixed(2)}</p>
     <p><strong>Taxa Total:</strong> R$ ${taxaTotal.toFixed(2)}</p>
   `;
-});
-
-// PWA: Adicionar funcionalidade de instalação
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-button').style.display = 'block';
-});
-
-document.getElementById('install-button').addEventListener('click', () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('PWA instalado com sucesso.');
-      } else {
-        console.log('PWA não foi instalado.');
-      }
-      deferredPrompt = null;
-    });
-  }
 });
