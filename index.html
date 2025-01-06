@@ -4,27 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Taxas</title>
-  
-  <!-- Estilo -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Ícone para a aba do navegador -->
-  <link rel="icon" href="assets/mercado_pago_calculadora_icon.png" type="image/png">
 
-  <!-- Ícone para atalhos no celular -->
+  <!-- Ícone e Manifesto -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/mercado_pago_calculadora_icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/mercado_pago_calculadora_icon.png">
 
-  <!-- Manifesto para PWA -->
-  <link rel="manifest" href="manifest.json">
+  <!-- Estilo -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Calculadora de Taxas</h1>
-    
+    <h1>Calculadora de Taxas do Mercado Pago</h1>
+
     <!-- Formulário da calculadora -->
     <form id="calculadora-form">
       <label for="valor">Valor que deseja receber (R$):</label>
-      <input type="number" id="valor" required><br>
+      <input type="number" id="valor" step="0.01" required><br>
 
       <label for="parcelas">Número de Parcelas:</label>
       <select id="parcelas" required>
@@ -55,16 +51,13 @@
     <!-- Resultado -->
     <div id="resultado"></div>
 
-    <!-- Seção de download do ícone -->
-    <div class="download-icon">
-      <h2>Baixe o ícone da Calculadora</h2>
-      <a href="assets/mercado_pago_calculadora_icon.png" download="calculadora_mercado_pago_icon.png">
-        <button type="button">Baixar Ícone</button>
-      </a>
+    <!-- Instalação do PWA -->
+    <div class="install-pwa">
+      <h2>Adicione a Calculadora à sua Área de Trabalho</h2>
+      <button id="install-button" style="display:none;">Instalar</button>
     </div>
   </div>
 
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
