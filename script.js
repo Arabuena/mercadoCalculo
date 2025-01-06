@@ -60,8 +60,7 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
   document.getElementById('resultado').innerHTML = `
     <h2>Resultado:</h2>
     <p><strong>Valor que você quer receber (R$):</strong> R$ ${valorLiquido.toFixed(2)}</p>
-    <p><strong>Valor Bruto Necessário para Cobrar (R$):</strong> R$ ${valorBruto.toFixed(2)}</p>
-    <p><strong>Valor Total com Juros (R$):</strong> R$ ${valorComTaxas.toFixed(2)}</p>
+     <p><strong>Valor Total com Juros (R$):</strong> R$ ${valorComTaxas.toFixed(2)}</p>
     <p><strong>Valor da Parcela (R$):</strong> R$ ${valorParcela.toFixed(2)}</p>
     <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}% = R$ ${valorTaxaParcelamento.toFixed(2)}</p>
     <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}% = R$ ${valorTaxaProcessamento.toFixed(2)}</p>
