@@ -49,6 +49,9 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
   // Calcular o valor da parcela
   const valorParcela = valorComTaxa / parcelas;
 
+  // Calcular a taxa de recebimento
+  const taxaRecebimento = valorComTaxa - valorLiquido;
+
   // Exibição do resultado
   document.getElementById('resultado').innerHTML = `
     <h2>Resultado:</h2>
@@ -58,6 +61,6 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
     <p><strong>Valor da parcela (R$):</strong> R$ ${valorParcela.toFixed(2)}</p>
     <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}%</p>
     <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}%</p>
-    <p><strong>Valor total a ser cobrado para receber o valor desejado:</strong> R$ ${valorComTaxa.toFixed(2)}</p>
+    <p><strong>Taxa de Recebimento (valor adicional que você paga):</strong> R$ ${taxaRecebimento.toFixed(2)}</p>
   `;
 });
