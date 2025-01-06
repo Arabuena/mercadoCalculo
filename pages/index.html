@@ -1,7 +1,18 @@
-<form id="calculadora-form">
-    <label for="valor">Valor do Serviço/Produto (R$):</label>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Taxas Mercado Pago</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Calculadora de Taxas Mercado Pago</h1>
+
+  <form id="calculadora-form">
+    <label for="valor">Valor que quero receber (R$):</label>
     <input type="number" id="valor" name="valor" required>
-  
+
     <label for="parcelas">Número de Parcelas:</label>
     <select id="parcelas" name="parcelas">
       <option value="1">1x</option>
@@ -17,21 +28,24 @@
       <option value="11">11x</option>
       <option value="12">12x</option>
     </select>
-  
+
     <label for="prazo">Prazo de Recebimento:</label>
     <select id="prazo" name="prazo">
       <option value="imediato">Imediato</option>
       <option value="14 dias">14 dias</option>
       <option value="30 dias">30 dias</option>
     </select>
-  
+
     <label for="taxa-adicional">Taxa Adicional (%):</label>
     <input type="number" id="taxa-adicional" name="taxa-adicional" min="0">
-  
+
     <button type="submit">Calcular</button>
   </form>
-  
+
   <div id="resultado">
     <!-- Os resultados serão exibidos aqui -->
   </div>
-  
+
+  <script src="script.js"></script>
+</body>
+</html>
