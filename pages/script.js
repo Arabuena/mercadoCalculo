@@ -13,13 +13,14 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
     return;
   }
 
-  // Taxas de processamento e parcelamento
+  // Taxas de processamento
   const taxasProcessamento = {
     imediato: 0.0531,
     '14 dias': 0.0436,
     '30 dias': 0.036,
   };
 
+  // Taxas de parcelamento
   const taxasParcelamento = {
     1: 0,
     2: 0.0459,
@@ -35,25 +36,26 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
     12: 0.1728,
   };
 
+  // Calcular a taxa de parcelamento e de processamento
   const taxaParcelamento = taxasParcelamento[parcelas];
   const taxaProcessamento = taxasProcessamento[prazo];
 
-  // Calculando o valor bruto necessário para receber o valor líquido desejado
+  // Cálculo do valor bruto que precisa ser cobrado
   const valorBruto = valorLiquido / (1 - (taxaParcelamento + taxaProcessamento));
 
-  // Calculando o valor com a taxa adicional
+  // Cálculo do valor com a taxa adicional
   const valorComTaxa = valorBruto * (1 + taxaAdicional / 100);
 
-  // Calculando o valor da parcela
+  // Calcular o valor da parcela
   const valorParcela = valorComTaxa / parcelas;
 
   // Exibição do resultado
   document.getElementById('resultado').innerHTML = `
     <h2>Resultado:</h2>
     <p><strong>Valor que você quer receber (R$):</strong> R$ ${valorLiquido.toFixed(2)}</p>
-    <p><strong>Valor bruto necessário para cobrar:</strong> R$ ${valorBruto.toFixed(2)}</p>
-    <p><strong>Valor com taxa adicional (%):</strong> R$ ${valorComTaxa.toFixed(2)}</p>
-    <p><strong>Valor da parcela:</strong> R$ ${valorParcela.toFixed(2)}</p>
+    <p><strong>Valor bruto necessário para cobrar (R$):</strong> R$ ${valorBruto.toFixed(2)}</p>
+    <p><strong>Valor total com todas as taxas (R$):</strong> R$ ${valorComTaxa.toFixed(2)}</p>
+    <p><strong>Valor da parcela (R$):</strong> R$ ${valorParcela.toFixed(2)}</p>
     <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}%</p>
     <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}%</p>
     <p><strong>Valor total a ser cobrado para receber o valor desejado:</strong> R$ ${valorComTaxa.toFixed(2)}</p>
