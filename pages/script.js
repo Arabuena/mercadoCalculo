@@ -1,16 +1,19 @@
 document.getElementById('calculadora-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
+  // Valor líquido que o cliente quer receber
   const valorLiquido = parseFloat(document.getElementById('valor').value);
   const parcelas = parseInt(document.getElementById('parcelas').value);
   const prazo = document.getElementById('prazo').value;
   const taxaAdicional = parseFloat(document.getElementById('taxa-adicional').value) || 0;
 
+  // Verifica se o valor líquido é válido
   if (isNaN(valorLiquido) || valorLiquido <= 0) {
     alert('Por favor, insira um valor válido.');
     return;
   }
 
+  // Taxas de processamento e parcelamento
   const taxasProcessamento = {
     imediato: 0.0531,
     '14 dias': 0.0436,
@@ -44,17 +47,15 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
   // Calculando o valor da parcela
   const valorParcela = valorComTaxa / parcelas;
 
-  // Calculando o valor total com taxas
-  const valorTotal = valorComTaxa + (valorComTaxa * (taxaParcelamento + taxaProcessamento));
-
+  // Exibição do resultado
   document.getElementById('resultado').innerHTML = `
     <h2>Resultado:</h2>
-    <p>Valor líquido desejado: R$ ${valorLiquido.toFixed(2)}</p>
-    <p>Valor bruto necessário para cobrar: R$ ${valorBruto.toFixed(2)}</p>
-    <p>Valor com taxa adicional: R$ ${valorComTaxa.toFixed(2)}</p>
-    <p>Valor da parcela: R$ ${valorParcela.toFixed(2)}</p>
-    <p>Taxa de Parcelamento: ${(taxaParcelamento * 100).toFixed(2)}%</p>
-    <p>Taxa de Processamento: ${(taxaProcessamento * 100).toFixed(2)}%</p>
-    <p>Valor total a ser cobrado para receber o valor desejado: R$ ${valorComTaxa.toFixed(2)}</p>
+    <p><strong>Valor que você quer receber (R$):</strong> R$ ${valorLiquido.toFixed(2)}</p>
+    <p><strong>Valor bruto necessário para cobrar:</strong> R$ ${valorBruto.toFixed(2)}</p>
+    <p><strong>Valor com taxa adicional (%):</strong> R$ ${valorComTaxa.toFixed(2)}</p>
+    <p><strong>Valor da parcela:</strong> R$ ${valorParcela.toFixed(2)}</p>
+    <p><strong>Taxa de Parcelamento:</strong> ${(taxaParcelamento * 100).toFixed(2)}%</p>
+    <p><strong>Taxa de Processamento:</strong> ${(taxaProcessamento * 100).toFixed(2)}%</p>
+    <p><strong>Valor total a ser cobrado para receber o valor desejado:</strong> R$ ${valorComTaxa.toFixed(2)}</p>
   `;
 });
