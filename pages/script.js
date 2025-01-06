@@ -40,10 +40,10 @@ document.getElementById('calculadora-form').addEventListener('submit', function(
   const taxaParcelamento = taxasParcelamento[parcelas];
   const taxaProcessamento = taxasProcessamento[prazo];
 
-  // Cálculo do valor bruto que precisa ser cobrado
+  // Calcular o valor bruto necessário para que, após deduzir as taxas, o valor líquido seja o desejado
   const valorBruto = valorLiquido / (1 - (taxaParcelamento + taxaProcessamento));
 
-  // Cálculo do valor com a taxa adicional
+  // Calcular o valor total com a taxa adicional
   const valorComTaxa = valorBruto * (1 + taxaAdicional / 100);
 
   // Calcular o valor da parcela
